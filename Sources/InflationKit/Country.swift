@@ -16,7 +16,7 @@
 
 import Foundation
 
-enum Country: String, CaseIterable {
+public enum Country: String, CaseIterable {
     case germany = "germany"
     case unitedStates = "united-states"
     case france = "france"
@@ -36,9 +36,9 @@ enum Country: String, CaseIterable {
     case turkey = "turkey"
     case ukraine = "ukraine"
 
-    var identifier: String { rawValue }
+    public var identifier: String { rawValue }
 
-    var displayName: LocalizedStringResource {
+    public var displayName: LocalizedStringResource {
         switch self {
         case .germany:        return "Germany"
         case .unitedStates:   return "United States"
@@ -61,7 +61,7 @@ enum Country: String, CaseIterable {
         }
     }
 
-    var oldestDate: Date {
+    public var oldestDate: Date {
         switch self {
         case .germany:        return Date(timeIntervalSince1970: -694_310_400)
         case .unitedStates:   return Date(timeIntervalSince1970: -1_798_761_600)

@@ -16,18 +16,20 @@
 
 import Foundation
 
-class InflationCalculator {
+public class InflationCalculator {
     private let baseURL = "https://www.statbureau.org"
-    var country = Country.unitedStates
-    var start = Date()
-    var end = Date()
-    var amount = 100.0
+    public let acknowledgement = "Inflation data provided by www.statbureau.org"
     
-    var calculatedPrice: (String?, Double?) = (nil, nil)
-    var calculatedRate: String? = nil
+    public var country = Country.unitedStates
+    public var start = Date()
+    public var end = Date()
+    public var amount = 100.0
+    
+    public var calculatedPrice: (String?, Double?) = (nil, nil)
+    public var calculatedRate: String? = nil
     
     // ---Adjust for inflation---
-    func calculatePrice() async throws -> (String, Double) {
+    public func calculatePrice() async throws -> (String, Double) {
         var data = Data()
         
         guard let url = URL(string: "\(baseURL)/calculate-inflation-price-json") else { throw CalculationError.urlError }
@@ -63,7 +65,7 @@ class InflationCalculator {
     }
     
     // ---Get inflation rate---
-    func calculateInflationRate() async throws -> String {
+    public func calculateInflationRate() async throws -> String {
         var data = Data()
         
         guard let url = URL(string: "\(baseURL)/calculate-inflation-rate-json") else { throw CalculationError.urlError }
@@ -95,4 +97,6 @@ class InflationCalculator {
     private enum CalculationError: Error {
         case urlError, decodingError, downloadingError
     }
+    
+    public init() {}
 }

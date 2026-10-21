@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Double {
+public extension Double {
     init(string: String) throws {
         guard let temporary = Double(string) else {
             throw ConvertingError.notARealNumber
@@ -17,6 +17,6 @@ extension Double {
     }
 }
 
-enum ConvertingError: Error {
+public enum ConvertingError: Error {
     case notARealNumber
 }
