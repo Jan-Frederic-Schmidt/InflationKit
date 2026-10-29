@@ -18,11 +18,11 @@ import Foundation
 
 public class InflationCalculator {
     private let baseURL = "https://www.statbureau.org"
-    public let acknowledgement = "Inflation data provided by www.statbureau.org"
+    public static let acknowledgement = "Inflation data provided by www.statbureau.org"
     
     public var country = Country.unitedStates
-    public var start = Date()
-    public var end = Date()
+    public var start = Date.now
+    public var end = Date.now
     public var amount = 100.0
     
     public var calculatedPrice: (String?, Double?) = (nil, nil)
