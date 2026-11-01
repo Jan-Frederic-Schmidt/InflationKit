@@ -16,7 +16,7 @@
 
 import Foundation
 
-public enum Country: String, CaseIterable {
+public enum Country: String, CaseIterable, Sendable {
     case germany = "germany"
     case unitedStates = "united-states"
     case france = "france"
